@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
+import Navbar from "src/components/organisms/Navbar";
 
 type Customer = {
   id: string;
@@ -29,18 +29,9 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <nav>
-        <div>
-          <Image src="/logo.svg" alt="MaterData" width={145} height={30} />
-        </div>
-        <div>
-          <button>Notifications</button>
-          <button>zuza@materimperium.com</button>
-          <button>help</button>
-          <button>settings</button>
-          <button>menu</button>
-        </div>
-      </nav>
+
+      <Navbar />
+
       <main>
         <aside>
           <div>
