@@ -7,7 +7,7 @@ const ButtonIcon = (props: ButtonIconProps) => {
   const { children, hasNotification } = props;
 
   return (
-    <button className="relative" data-testid="btnicon">
+    <button className="relative btn-icon" data-testid="btnicon">
       {children}
       {hasNotification && (
         <div

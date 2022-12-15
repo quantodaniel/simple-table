@@ -5,3 +5,7 @@
 body {
   background-color: #f1f5f9;
 }
+
+.btn-icon svg {
+  @apply text-[#64748B] w-5 h-5;
+}

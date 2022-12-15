@@ -5,7 +5,7 @@ const NavbarUserMenu = () => {
   return (
     <Button>
       zuza@materimperium.com
-      <MdKeyboardArrowDown className="text-slate-500" />
+      <MdKeyboardArrowDown />
     </Button>
   );
 };
