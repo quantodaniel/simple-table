@@ -1,3 +1,3 @@
-import Avatar from "./Logo";
+import Logo from "./Logo";
 
-export default Avatar;
+export default Logo;

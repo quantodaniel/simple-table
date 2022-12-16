@@ -1,11 +1,15 @@
 import { useState } from "react";
+import { MdAddCircle } from "react-icons/md";
 import { useQuery } from "react-query";
+import Avatar from "src/components/atoms/Avatar";
+import ButtonIcon from "src/components/atoms/ButtonIcon";
 import Content from "src/components/atoms/Content";
 import Header from "src/components/atoms/Header";
 import Table from "src/components/organisms/Table";
+import { TableColumnProps } from "src/components/organisms/Table/Table";
 import TableFilter from "src/components/organisms/TableFilter";
 import TablePagination from "src/components/organisms/TablePagination";
-import { CustomerResponse } from "src/interfaces";
+import { Customer, CustomerResponse } from "src/interfaces";
 
 const fetchCustomers = async (
   page: number,
@@ -26,6 +30,43 @@ export default function Home() {
     { keepPreviousData: true }
   );
 
+  const columns: TableColumnProps<Customer>[] = [
+    {
+      key: "firstName",
+      header: "Customer",
+      render: (item) => {
+        const userName = `${item.firstName} ${item.lastName}`;
+
+        return (
+          <div className="flex items-center gap-4">
+            <Avatar name={userName} />
+            <span className="font-medium">{userName}</span>
+          </div>
+        );
+      },
+    },
+    {
+      key: "address",
+      header: "Location",
+      render: (item) => <>{item.address.city}</>,
+    },
+    {
+      key: "phone",
+      header: "Phone",
+      render: (item) => <>{item.phone}</>,
+    },
+    {
+      key: "email",
+      header: "E-mail",
+      render: (item) => <>{item.email}</>,
+    },
+    {
+      key: "actions",
+      header: "Actions",
+      render: (item) => <ButtonIcon>...</ButtonIcon>,
+    },
+  ];
+
   return (
     <>
       <Header>Customers</Header>
@@ -35,8 +76,19 @@ export default function Home() {
 
         {!isLoading && (
           <>
-            <TableFilter />
-            <Table />
+            <TableFilter>
+              <ButtonIcon variant="primary" startIcon={<MdAddCircle />}>
+                Add customer
+              </ButtonIcon>
+            </TableFilter>
+
+            <Table<Customer>
+              data={data.users}
+              columns={columns}
+              onSelect={() => {}}
+              onSelectAll={() => {}}
+            />
+
             <TablePagination
               limit={data.limit}
               skip={data.skip}

@@ -5,11 +5,12 @@ export interface Response {
 }
 
 export interface Customer {
-  id: string;
+  id: number;
   firstName: string;
   lastName: string;
   phone: string;
   email: string;
+  image: string;
   address: {
     city: string;
   };
