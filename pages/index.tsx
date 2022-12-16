@@ -1,6 +1,6 @@
 import Head from "next/head";
-import Link from "next/link";
 import Navbar from "src/components/organisms/Navbar";
+import Sidebar from "src/components/organisms/Sidebar";
 
 type Customer = {
   id: string;
@@ -33,18 +33,12 @@ export default function Home() {
       <Navbar />
 
       <main>
-        <aside>
-          <div>
-            <Link href="#">Dashboard</Link>
-            <Link href="#">Statistics</Link>
-            <Link href="#">Receipts</Link>
-            <Link href="#">Offers</Link>
-            <Link href="#">Profile</Link>
-          </div>
-        </aside>
-        <section>
+        <Sidebar />
+
+        <section className="flex-1 p-6">
           <h1>Customers</h1>
-          <div>
+
+          <div className="bg-white flex">
             <div>filters</div>
             <table>
               <thead>

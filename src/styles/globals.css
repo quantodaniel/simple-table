@@ -3,9 +3,18 @@
 @tailwind utilities;
 
 body {
-  background-color: #f1f5f9;
+  @apply bg-slate-100;
+
+  > div {
+    @apply flex flex-col min-h-screen;
+  }
+}
+
+main {
+  @apply flex flex-1;
 }
 
 .btn-icon svg {
   @apply text-[#64748B] w-5 h-5;
 }
+ 
