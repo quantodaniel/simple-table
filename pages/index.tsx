@@ -1,55 +1,52 @@
-import Head from "next/head";
+import { useState } from "react";
+import { useQuery } from "react-query";
 import Content from "src/components/atoms/Content";
 import Header from "src/components/atoms/Header";
-import Navbar from "src/components/organisms/Navbar";
-import Sidebar from "src/components/organisms/Sidebar";
 import Table from "src/components/organisms/Table";
 import TableFilter from "src/components/organisms/TableFilter";
 import TablePagination from "src/components/organisms/TablePagination";
+import { CustomerResponse } from "src/interfaces";
 
-type Customer = {
-  id: string;
-  name: string;
-  location: string;
-  phone: string;
-  email: string;
+const fetchCustomers = async (
+  page: number,
+  limit = 10
+): Promise<CustomerResponse> => {
+  const url = `https://dummyjson.com/users?skip=${page}&limit=${limit}`;
+  const res = await fetch(url);
+  return await res.json();
 };
 
-const data: Customer[] = [
-  {
-    id: "1",
-    name: "John Doe",
-    location: "Berlin",
-    phone: "+49 123 456 789",
-    email: "",
-  },
-];
-
 export default function Home() {
+  const [currentPage, setCurrentPage] = useState(0);
+  const [currentLimit, setCurrentLimit] = useState(10);
+
+  const { isLoading, data } = useQuery(
+    ["users", currentPage, currentLimit],
+    () => fetchCustomers(currentPage, currentLimit),
+    { keepPreviousData: true }
+  );
+
   return (
     <>
-      <Head>
-        <title>MaterData</title>
-        <meta name="description" content="MaterData" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <Header>Customers</Header>
 
-      <Navbar />
+      <Content>
+        {isLoading && <p className="p-10">Loading...</p>}
 
-      <main className="flex flex-1">
-        <Sidebar />
-
-        <section className="flex flex-col flex-1 p-6 gap-6">
-          <Header>Customers</Header>
-
-          <Content>
+        {!isLoading && (
+          <>
             <TableFilter />
             <Table />
-            <TablePagination />
-          </Content>
-        </section>
-      </main>
+            <TablePagination
+              limit={data.limit}
+              skip={data.skip}
+              total={data.total}
+              setCurrentPage={setCurrentPage}
+              setCurrentLimit={setCurrentLimit}
+            />
+          </>
+        )}
+      </Content>
     </>
   );
 }
