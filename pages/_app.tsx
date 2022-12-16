@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { QueryClient, QueryClientProvider } from "react-query";
+import Layout from "src/components/layouts/Dashboard";
 import "src/styles/globals.css";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -16,7 +17,9 @@ export default function App({ Component, pageProps }: AppProps) {
        <link rel="icon" href="/favicon.ico" />
      </Head>
      <QueryClientProvider client={queryClient}>
-       <Component {...pageProps} />
+       <Layout>
+         <Component {...pageProps} />
+       </Layout>
      </QueryClientProvider>
    </>
  );

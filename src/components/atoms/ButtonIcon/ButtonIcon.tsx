@@ -37,6 +37,7 @@ const ButtonIcon = (props: ButtonIconProps) => {
 
   return (
     <button
+      type="button"
       className={`relative inline-flex justify-center items-center font-bold gap-2 text-sm rounded-lg transition-all ${className}`}
       data-testid="btnicon"
       onClick={onClick}
