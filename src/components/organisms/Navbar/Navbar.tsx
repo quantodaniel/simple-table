@@ -8,7 +8,7 @@ import NavbarUserMenu from "src/components/molecules/NavbarUserMenu";
 
 const Navbar = () => {
   return (
-    <nav className="bg-white drop-shadow-sm p-6 flex justify-between items-center">
+    <nav className="bg-white p-6 flex justify-between items-center border-b border-slate-200">
       <Logo />
       <div className="flex justify-between items-center gap-4">
         <NavbarNotification />
@@ -19,15 +19,11 @@ const Navbar = () => {
 
         <Divider />
 
-        <ButtonIcon>
-          <MdHelpOutline />
-        </ButtonIcon>
+        <ButtonIcon startIcon={<MdHelpOutline />} />
 
         <Divider />
 
-        <ButtonIcon>
-          <MdOutlineSettings />
-        </ButtonIcon>
+        <ButtonIcon startIcon={<MdOutlineSettings />} />
 
         <Divider />
 

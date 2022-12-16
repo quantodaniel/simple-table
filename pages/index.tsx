@@ -1,8 +1,11 @@
 import Head from "next/head";
+import Content from "src/components/atoms/Content";
 import Header from "src/components/atoms/Header";
 import Navbar from "src/components/organisms/Navbar";
 import Sidebar from "src/components/organisms/Sidebar";
 import Table from "src/components/organisms/Table";
+import TableFilter from "src/components/organisms/TableFilter";
+import TablePagination from "src/components/organisms/TablePagination";
 
 type Customer = {
   id: string;
@@ -40,25 +43,11 @@ export default function Home() {
         <section className="flex flex-col flex-1 p-6 gap-6">
           <Header>Customers</Header>
 
-          <div className="bg-white flex flex-1">
-            <div>filters</div>
-
+          <Content>
+            <TableFilter />
             <Table />
-
-            <div>
-              <div>Showing 10 of 14.381 results</div>
-              <div>pagination</div>
-              <div>
-                Items per page
-                <select>
-                  <option>10</option>
-                  <option>20</option>
-                  <option>50</option>
-                  <option>100</option>
-                </select>
-              </div>
-            </div>
-          </div>
+            <TablePagination />
+          </Content>
         </section>
       </main>
     </>
