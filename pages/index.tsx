@@ -5,6 +5,7 @@ import Avatar from "src/components/atoms/Avatar";
 import ButtonIcon from "src/components/atoms/ButtonIcon";
 import Content from "src/components/atoms/Content";
 import Header from "src/components/atoms/Header";
+import TableRowActions from "src/components/molecules/TableRowActions";
 import Table from "src/components/organisms/Table";
 import { TableColumnProps } from "src/components/organisms/Table/Table";
 import TableFilter from "src/components/organisms/TableFilter";
@@ -63,7 +64,10 @@ export default function Home() {
     {
       key: "actions",
       header: "Actions",
-      render: (item) => <ButtonIcon>...</ButtonIcon>,
+      className: "text-end",
+      render: (item) => (
+        <TableRowActions onEdit={() => {}} onDelete={() => {}} />
+      ),
     },
   ];
 

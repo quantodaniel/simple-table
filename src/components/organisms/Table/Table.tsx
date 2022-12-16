@@ -2,6 +2,7 @@ export interface TableColumnProps<T> {
   key: keyof T | "actions";
   header: string;
   render: (item: T) => React.ReactNode;
+  className?: string;
 }
 
 export interface TableProps<T> {
@@ -27,7 +28,7 @@ function Table<T extends { id: number }>(props: TableProps<T>) {
           {columns.map((column) => (
             <th
               key={column.header}
-              className="text-xs font-normal text-start p-4"
+              className={`text-xs font-normal text-start p-4 ${column.className}`}
             >
               {column.header}
             </th>
@@ -50,7 +51,7 @@ function Table<T extends { id: number }>(props: TableProps<T>) {
             {columns.map((column) => (
               <td
                 key={`td_${item.id}_${column.header}`}
-                className="text-sm p-4"
+                className={`text-sm p-4 ${column.className}`}
               >
                 {column.render(item)}
               </td>
