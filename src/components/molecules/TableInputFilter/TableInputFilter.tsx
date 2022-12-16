@@ -5,9 +5,9 @@ const TableInputFilter = () => {
   return (
     <div className="flex gap-4">
       <div className="relative flex items-center">
-        <MdSearch className="h-4 w-4 text-slate-400 absolute ml-3" />
+        <MdSearch className="h-4 w-4 text-slate-6 absolute ml-3" />
         <input
-          className="border border-slate-400 rounded-md h-9 text-sm pl-9 pr-2"
+          className="border border-slate-6 rounded-md h-9 text-sm pl-9 pr-2"
           placeholder="Search..."
         />
       </div>

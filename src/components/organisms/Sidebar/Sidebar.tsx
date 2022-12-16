@@ -6,36 +6,20 @@ import {
   MdOutlineStackedLineChart,
   MdPersonOutline,
 } from "react-icons/md";
-import SidebarLink from "src/components/molecules/SidebarLink";
+import ButtonIcon from "src/components/atoms/ButtonIcon";
 
 const Sidebar = () => {
   return (
-    <aside className="bg-white border-r border-slate-200 p-6 flex flex-col justify-between gap-6">
+    <aside className="bg-white border-r border-slate-200 py-6 flex flex-col items-center justify-between gap-6 w-[72px]">
       <div className="flex flex-col gap-6">
-        <SidebarLink href="#">
-          <MdOutlineHome />
-        </SidebarLink>
-
-        <SidebarLink href="#">
-          <MdOutlineStackedLineChart />
-        </SidebarLink>
-
-        <SidebarLink href="#">
-          <MdOutlineReceipt />
-        </SidebarLink>
-
-        <SidebarLink href="#">
-          <MdOutlineSell />
-        </SidebarLink>
-
-        <SidebarLink href="#" active>
-          <MdPersonOutline />
-        </SidebarLink>
+        <ButtonIcon startIcon={<MdOutlineHome />} variant="icon" />
+        <ButtonIcon startIcon={<MdOutlineStackedLineChart />} variant="icon" />
+        <ButtonIcon startIcon={<MdOutlineReceipt />} variant="icon" />
+        <ButtonIcon startIcon={<MdOutlineSell />} variant="icon" />
+        <ButtonIcon startIcon={<MdPersonOutline />} variant="icon" active />
       </div>
 
-      <SidebarLink href="#">
-        <MdMenuOpen />
-      </SidebarLink>
+      <ButtonIcon startIcon={<MdMenuOpen />} variant="icon" />
     </aside>
   );
 };

@@ -6,24 +6,30 @@ type ButtonIconProps = {
   variant?: "icon" | "primary" | "secondary";
   startIcon?: React.ReactElement;
   endIcon?: React.ReactElement;
+  active?: boolean;
+};
+
+const classes = {
+  icon: "p-2 hover:bg-slate-200 text-slate-5 hover:text-dark-1",
+  iconActive: "p-2 hover:bg-slate-200 bg-slate-9 text-dark-1 hover:text-dark-1",
+  primary: "bg-slate-1 text-white px-3",
+  secondary:
+    "bg-slate-9 text-slate-1 px-3 hover:bg-slate-200 hover:text-dark-1",
+  default: "text-slate-5 hover:text-dark-1",
 };
 
 const ButtonIcon = (props: ButtonIconProps) => {
-  const { children, hasNotification, variant, startIcon, endIcon } = props;
+  const { children, hasNotification, variant, startIcon, endIcon, active } =
+    props;
 
-  let className = "text-slate-500 hover:text-gray-900";
-  if (variant === "primary") {
-    className = "bg-slate-900 text-white px-3";
-  }
-
-  if (variant === "secondary") {
-    className =
-      "bg-slate-100 text-gray-900 px-3 hover:bg-slate-200 hover:text-gray-900";
+  let className = classes[variant || "default"];
+  if (variant === "icon" && active) {
+    className = classes.iconActive;
   }
 
   return (
     <button
-      className={`relative flex items-center font-bold gap-2 text-sm rounded-lg transition-all  ${className}`}
+      className={`relative flex justify-center items-center font-bold gap-2 text-sm rounded-lg transition-all  ${className}`}
       data-testid="btnicon"
     >
       {startIcon && React.cloneElement(startIcon, { className: "w-5 h-5" })}

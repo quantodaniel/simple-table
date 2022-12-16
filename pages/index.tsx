@@ -37,7 +37,7 @@ export default function Home() {
 
       <Navbar />
 
-      <main>
+      <main className="flex flex-1">
         <Sidebar />
 
         <section className="flex flex-col flex-1 p-6 gap-6">
