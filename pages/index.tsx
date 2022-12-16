@@ -91,8 +91,8 @@ export default function Home() {
 
             <TablePagination
               limit={data.limit}
-              skip={data.skip}
               total={data.total}
+              page={currentPage}
               setCurrentPage={setCurrentPage}
               setCurrentLimit={setCurrentLimit}
             />

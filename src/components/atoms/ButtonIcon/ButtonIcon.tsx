@@ -7,6 +7,7 @@ type ButtonIconProps = {
   startIcon?: React.ReactElement;
   endIcon?: React.ReactElement;
   active?: boolean;
+  onClick?: () => void;
 };
 
 const classes = {
@@ -19,8 +20,15 @@ const classes = {
 };
 
 const ButtonIcon = (props: ButtonIconProps) => {
-  const { children, hasNotification, variant, startIcon, endIcon, active } =
-    props;
+  const {
+    children,
+    hasNotification,
+    variant,
+    startIcon,
+    endIcon,
+    active,
+    onClick,
+  } = props;
 
   let className = classes[variant || "default"];
   if (variant === "icon" && active) {
@@ -31,6 +39,7 @@ const ButtonIcon = (props: ButtonIconProps) => {
     <button
       className={`relative flex justify-center items-center font-bold gap-2 text-sm rounded-lg transition-all  ${className}`}
       data-testid="btnicon"
+      onClick={onClick}
     >
       {startIcon && React.cloneElement(startIcon, { className: "w-5 h-5" })}
       {children}
