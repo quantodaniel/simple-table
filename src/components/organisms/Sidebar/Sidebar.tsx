@@ -10,7 +10,7 @@ import ButtonIcon from "src/components/atoms/ButtonIcon";
 
 const Sidebar = () => {
   return (
-    <aside className="bg-white border-r border-slate-200 py-6 flex flex-col items-center justify-between gap-6 w-[72px]">
+    <aside className="bg-white border-r border-slate-200 py-6 flex flex-col items-center justify-between gap-6 w-[72px] h-[calc(100vh-79px)] sticky top-[79px]">
       <div className="flex flex-col gap-6">
         <ButtonIcon startIcon={<MdOutlineHome />} variant="icon" />
         <ButtonIcon startIcon={<MdOutlineStackedLineChart />} variant="icon" />

@@ -3,7 +3,14 @@ import Table from "./Table";
 
 describe("Table", () => {
   it("should render correctly", () => {
-    const { container } = render(<Table />);
+    const { container } = render(
+      <Table
+        columns={[]}
+        data={[]}
+        onSelect={() => {}}
+        onSelectAll={() => {}}
+      />
+    );
     expect(container).toBeInTheDocument();
   });
 });
