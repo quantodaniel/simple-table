@@ -1,12 +1,11 @@
 import { MdKeyboardArrowDown } from "react-icons/md";
-import Button from "src/components/atoms/Button";
 
 const NavbarUserMenu = () => {
   return (
-    <Button>
+    <button className="flex gap-2 items-center">
       zuza@materimperium.com
       <MdKeyboardArrowDown />
-    </Button>
+    </button>
   );
 };
 
