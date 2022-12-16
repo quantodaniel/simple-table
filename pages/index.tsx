@@ -1,6 +1,8 @@
 import Head from "next/head";
+import Header from "src/components/atoms/Header";
 import Navbar from "src/components/organisms/Navbar";
 import Sidebar from "src/components/organisms/Sidebar";
+import Table from "src/components/organisms/Table";
 
 type Customer = {
   id: string;
@@ -35,31 +37,14 @@ export default function Home() {
       <main>
         <Sidebar />
 
-        <section className="flex-1 p-6">
-          <h1>Customers</h1>
+        <section className="flex flex-col flex-1 p-6 gap-6">
+          <Header>Customers</Header>
 
-          <div className="bg-white flex">
+          <div className="bg-white flex flex-1">
             <div>filters</div>
-            <table>
-              <thead>
-                <tr>
-                  <th>Customer</th>
-                  <th>Location</th>
-                  <th>Phone</th>
-                  <th>E-mail</th>
-                  <th>Actions</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                </tr>
-              </tbody>
-            </table>
+
+            <Table />
+
             <div>
               <div>Showing 10 of 14.381 results</div>
               <div>pagination</div>
