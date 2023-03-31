@@ -5,8 +5,8 @@ const Logo = () => {
   return (
     <Link href="/">
       <Image
-        src="/logo.svg"
-        alt="MaterData"
+        src="/logo.png"
+        alt="My Company"
         width={145}
         height={30}
         data-testid="img-logo"
